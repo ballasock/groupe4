@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: App.Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+      DATABASE_NAME: redline
+
+  db:
+    build:
+      context: .
+      dockerfile: Db.Dockerfile
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=redline
+volumes:
+  mysql_data:
