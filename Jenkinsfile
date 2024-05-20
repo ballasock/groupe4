@@ -10,11 +10,11 @@ pipeline {
     }
     agent any
     stages {
-        stage('Checkout Source') {
-            steps {
-                git 'https://github.com/ballasock/groupe4.git'
-            }
-        }
+        // stage('Checkout Source') {
+        //     steps {
+        //         git 'https://github.com/ballasock/groupe4.git'
+        //     }
+        // }
         stage('Build Web Docker image') {
             steps {
                 script {
