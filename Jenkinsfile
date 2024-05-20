@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('Build DB Docker image') {
+        stage('Build db Docker image') {
             steps {
                 script {
                     dbDockerImage = docker.build dbDockerImageName, "-f Db.Dockerfile ."
